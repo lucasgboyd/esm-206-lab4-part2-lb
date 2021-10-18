@@ -1,0 +1,26 @@
+---
+title: "Save a graph"
+author: "Lucas Boyd"
+date: "10/18/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(palmerpenguins)
+library(here)
+```
+
+## create a ggplot
+```{r}
+ggplot(data = penguins, aes(x = island)) +
+# geom bar counts number of observations
+  geom_bar(aes(fill = species))
+```
+## save a ggplot, specifying where we want to put it with here()
+first one is where you want it saved, second you want the file to have
+```{r}
+ggsave(here("figures", "penguins_count.png"))
+```
+
